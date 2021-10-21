@@ -40,6 +40,30 @@ class Contenedor {
 
     }
 
+    getRandom = async () => {
+        const arrProductos = await this.getAll();
+        let maxId = 0;
+        let prodRandom;
+        arrProductos.forEach(valor => {
+            if (valor.id > maxId) {
+                maxId = valor.id; }
+            }
+        );
+        prodRandom = parseInt(Math.random() * maxId) + 1
+        try {
+            const arrProductos = await this.getAll();
+            let salida = arrProductos.find (obj => (obj.id===prodRandom))
+            if (salida) {
+                return salida
+            } else {
+                return null
+                }
+        } catch {
+            throw new Error('No se pudo obtener producto random');
+        }
+    }
+
+
     deleteById = async id => {
         const arrProductos = await this.getAll()
         const productoBorrado = arrProductos.filter(p => p.id !== id)
@@ -56,17 +80,5 @@ class Contenedor {
     }
 
 }
-
-const db = new Contenedor('productos.txt')
-
-const test = async () => {    
-    //console.log(await db.saveProducto({ name: "Short Pants Blue", price: "8500", thumbnail: "https://via.placeholder.com/200", id: 4 }))
-    //console.log(await db.getAll())
-    //console.log(await db.getById(3))
-    //console.log(await db.deleteById(1))
-    //await db.deleteAll()
-}
-
-test()
 
 module.exports = Contenedor;

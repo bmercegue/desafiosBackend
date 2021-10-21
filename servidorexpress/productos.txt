@@ -1,0 +1,20 @@
+[
+    {
+        "title": "White Dress",
+        "price": 10000,
+        "thumbnail": "https://via.placeholder.com/200",
+        "id": 1
+    },
+    {
+        "title": "Short Pants Yellow",
+        "price": 8500,
+        "thumbnail": "https://via.placeholder.com/200",
+        "id": 2
+    },
+    {
+        "title": "Black T-Shirt",
+        "price": 5500,
+        "thumbnail": "https://via.placeholder.com/200",
+        "id": 3
+    }
+]
