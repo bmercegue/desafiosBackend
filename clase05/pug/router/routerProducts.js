@@ -5,15 +5,11 @@ const products = [];
 
 
 routerProducts.get('/', (req, res) => {
-    res.render('form', {products})
+    res.render('form');
 });
 
 routerProducts.get('/historial', (req, res) => {
-    if (products.length>0) {
-       res.render('historial', {products, someProduct:1}); 
-    } else {
-        res.render('form')
-    }   
+    res.render('historial', {products, someProduct:1}); 
 });
 
 
@@ -26,7 +22,7 @@ routerProducts.post('/', (req, res) => {
     if (products.length>0) {
         res.render('historial', {products, someProduct:1});
     } else {
-        res.render('form');
+        res.render('products');
     }
 });
 
