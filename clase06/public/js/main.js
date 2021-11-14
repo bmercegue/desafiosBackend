@@ -14,6 +14,7 @@ addProduct.addEventListener('submit', e => {
   e.preventDefault()
 
   const product = {
+
     title: addProduct [ 0 ].value,
     price: addProduct [ 1 ].value,
     thumbnail: addProduct [ 2 ].value,
@@ -53,6 +54,7 @@ addMessage.addEventListener('submit', e => {
   socket.emit('updateMessage', message);
 
   addMessage["newMessage"].value=""
+  
 })
 
   socket.on('messages', manejarEventoMessages);
