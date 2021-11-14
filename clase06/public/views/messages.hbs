@@ -1,0 +1,14 @@
+<style>
+    .table td,
+    .table th {
+        vertical-align:middle;
+    }
+</style>
+    {{#if messages.length}}
+        {{#each messages}}
+            <b style="color:black">{{this.sender}} </b> [ <span style="color:brown">{{this.dateHour}}</span> ]: <i style="color:green">{{this.text}}</i>
+    {{/each}}
+    <br>
+    {{else}}
+        <h3 class="alert alert-danger">No hay mensajes</h3>
+    {{/if}}
