@@ -1,24 +1,27 @@
-const express =  require('express');
+const express = require('express');
 const app = express();
+
+const routerCarrito = require('../routes/routerCarrito');
+const routerProductos = require('../routes/routerProductos');
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(express.static('public'));
 
 
-app.get('/', (req, res) => {
-    res.send('1a entrega Proyecto Final')
+app.use('/api/productos', routerProductos);
+app.use('/api/carrito', routerCarrito);
+
+app.use(function(req, res) {
+    res.json({
+        error: -2,
+        descripcion: `ruta '${req.url}' metodo '${req.method}' no implementada.`, 
+    });
+});
+
+
+const PORT = process.env.PORT || 8080;
+const server = app.listen(PORT, () => {
+    console.log(`Conectado al puerto ${server.address().port}`)
 })
-
-const routerProducts = require('../routers/routerProducts');
-const routerCarrito = require('../routers/routerCarrito');
-
-app.use('/products', routerProducts);
-app.use('/carrito', routerCarrito);
-
-
-const PORT = 8080
-const connectedServer = httpServer.listen(PORT, () => {
-    console.log(`Servidor http en el puerto ${connectedServer.address().port}`)
-})
-connectedServer.on('error', error => console.log(`Error en servidor ${error}`))
+server.on('error', error => console.log(`Error en servidor ${error}`))

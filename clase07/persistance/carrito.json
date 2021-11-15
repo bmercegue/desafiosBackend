@@ -1,0 +1,28 @@
+[
+    {
+      "id": 0,
+      "timestamp": "",
+      "productos": [
+        {
+          "timestamp": "",
+          "nombre": "",
+          "descripcion": "",
+          "codigo": "",
+          "foto": "0",
+          "precio": "",
+          "stock": "",
+          "id": 1
+        },
+        {
+          "timestamp": "",
+          "nombre": "",
+          "descripcion": "",
+          "codigo": "",
+          "foto": "",
+          "precio": "",
+          "stock": "",
+          "id": 2
+        }
+      ]
+    }
+  ]
