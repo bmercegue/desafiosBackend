@@ -38,7 +38,7 @@ class Productos {
     return producto
   }
 
-  async getProduct(id) {
+  async getProductId(id) {
     const productos = await this.getAll()
     const producto = productos.filter(e => e.id == id)
     if (producto) {
@@ -60,7 +60,7 @@ class Productos {
     }
   }
 
-  async removeProduct(id) {
+  async deleteCartProduct(id) {
     const productos = await this.getAll()
     const index = productos.findIndex(e => e.id == id)
     if (index >= 0) {

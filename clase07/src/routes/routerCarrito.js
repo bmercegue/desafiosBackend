@@ -5,10 +5,9 @@ const { createCart,
         deleteCart,
         getProducts,
         addProductToCart,
-        deleteProduct,} = require('../../controllers/carrito');
+        deleteCartProduct,} = require('../controllers/carrito');
 
-const admin = true;
-
+const adminLog = true;
 
 
 routerCarrito.post('/', createCart);
@@ -19,7 +18,7 @@ routerCarrito.get('/:id/productos', getProducts);
 
 routerCarrito.post('/:id/productos', addProductToCart);
 
-routerCarrito.delete('/:id/productos/:id_prod', deleteProduct);
+routerCarrito.delete('/:id/productos/:id_prod', deleteCartProduct);
 
 
 module.exports = Router;

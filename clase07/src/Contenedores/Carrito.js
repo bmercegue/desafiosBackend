@@ -1,11 +1,11 @@
 const fs = require('fs')
-const cartLoad = require('../../persistance/carrito.json');
+const loadCart = require('../../persistance/carrito.json');
 
 
 class Carrito {
     constructor() {
-      if (! fs.existsSync(cartLoad))
-        fs.writeFileSync(cartLoad, JSON.stringify([]))
+      if (! fs.existsSync(loadCart))
+        fs.writeFileSync(loadCart, JSON.stringify([]))
     }
   
     getLastId(carrito) {
@@ -17,7 +17,7 @@ class Carrito {
     }
   
     async getAll() {
-      const data = JSON.parse(fs.readFileSync(cartLoad, 'utf-8'))
+      const data = JSON.parse(fs.readFileSync(loadCart, 'utf-8'))
       return data
     }
   
@@ -30,7 +30,7 @@ class Carrito {
         'productos': []
     }
         carrito.push(carrito)
-        fs.writeFileSync(cartLoad, JSON.stringify(carrito, null, 2))
+        fs.writeFileSync(loadCart, JSON.stringify(carrito, null, 2))
             return carrito
     }
   
@@ -39,7 +39,7 @@ class Carrito {
       const index = carrito.findIndex(e => e.id == id)
       if (index >= 0) {
         carrito.splice(index, 1)
-        fs.writeFileSync(cartLoad, JSON.stringify(carrito, null, 2))
+        fs.writeFileSync(loadCart, JSON.stringify(carrito, null, 2))
         return 1
       } else {
         return 0
@@ -63,7 +63,7 @@ class Carrito {
         const indexProduct = productos.findIndex(e => e.id == idProd)
         if (indexProduct >= 0){
           carrito[indexCarrito].productos.push(productos[indexProduct])
-          fs.writeFileSync(cartLoad, JSON.stringify(carrito, null, 2))
+          fs.writeFileSync(loadCart, JSON.stringify(carrito, null, 2))
           return 1
         } else
           return 0
@@ -78,7 +78,7 @@ class Carrito {
         const indexProduct = carrito[indexCart].productos.findIndex(e => e.id == idProd)
         if (indexProduct >= 0) {
           carrito[indexCart].productos.splice(indexProduct, 1)
-          fs.writeFileSync(cartLoad, JSON.stringify(carrito, null, 2))
+          fs.writeFileSync(loadCart, JSON.stringify(carrito, null, 2))
           return 1
         } else
           return 0

@@ -2,22 +2,22 @@ const { Router} = require('express');
 const routerProductos = new Router();
 
 const { getAll, 
-        getProduct,
+        getProductId,
         addProduct,       
         modifyProduct,
-        removeProduct,} = require('../../controllers/producto');
+        deleteProduct} = require('../controllers/productos');
 
-const admin = true;
+const adminLog = true;
 
 routerProductos.get('/', getAll);
 
-routerProductos.get('/:id', getProduct);
+routerProductos.get('/:id', getProductId);
 
 routerProductos.post('/', addProduct);
 
 routerProductos.put('/:id', modifyProduct);
 
-routerProductos.delete('/:id', removeProduct);
+routerProductos.delete('/:id', deleteProduct);
 
 
 
